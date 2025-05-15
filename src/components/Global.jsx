@@ -1,5 +1,5 @@
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+import logo from "/src/assets/Homepage/zappos-logo-2025-header.svg";
+
 
 const Global = () => {
   return (
@@ -18,7 +18,7 @@ const Global = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="w-32 h-8 bg-gray-200 rounded animate-pulse">
-             <img src="src\assets\Homepage\zappos-logo-2025-header.svg" alt="Zappos logo" />
+             <img src={logo} alt="Zappos logo" />
 
             </div>
           </div>
