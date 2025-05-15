@@ -1,4 +1,4 @@
-import HERO from "src/assets/Homepage/HERO1.jpg"
+import HERO from "/src/assets/Homepage/HERO1.jpg"
 
 const HomePage_Content = () => {
   return (
