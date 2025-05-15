@@ -1,4 +1,4 @@
-import React from 'react'
+import HERO from "src/assets/Homepage/HERO1.jpg"
 
 const HomePage_Content = () => {
   return (
@@ -8,7 +8,7 @@ const HomePage_Content = () => {
 
       <div className='banner'>
        <picture>
-        <img src="src/assets/Homepage/HERO1.jpg" alt="bannerImg" />
+        <img src={HERO} alt="bannerImg" />
        </picture>
       </div>
 
