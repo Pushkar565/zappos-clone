@@ -8,7 +8,7 @@ const HomePage_Content = () => {
 
       <div className='banner'>
        <picture>
-        <img src="src\assets\Shoes- Sneakers- Boots- - Clothing - FREE SHIPPING - Zappos-com - 5_15_2025 11-26-57 AM\HERO1.jpg" alt="" />
+        <img src="src/assets/Homepage/HERO1.jpg" alt="bannerImg" />
        </picture>
       </div>
 
