@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import HERO from "/src/assets/Homepage/HERO1.jpg";
 import Trend1 from "/src/assets/Homepage/trending1.jpg";
 import Trend2 from "/src/assets/Homepage/trending2.jpg";
@@ -12,6 +13,7 @@ import FBrand3 from "/src/assets/Homepage/featuredBrand1 (3).jpg";
 import tile1 from "/src/assets/Homepage/tile (1).png";
 import tile2 from "/src/assets/Homepage/tile (2).png";
 import tile3 from "/src/assets/Homepage/tile (3).png";
+
 const HomePage_Content = () => {
   const scrollRef = useRef(null);
 
@@ -33,9 +35,12 @@ const HomePage_Content = () => {
     <div className="ParentDiv p-4">
       {/* Banner */}
       <div className="banner mb-8">
-        <picture>
-          <img src={HERO} alt="bannerImg" className="w-full rounded-xl" />
-        </picture>
+        <Link to={"/products"}>
+          {" "}
+          <picture>
+            <img src={HERO} alt="bannerImg" className="w-full rounded-xl" />
+          </picture>
+        </Link>
       </div>
 
       {/* Trending Categories Scroll */}
@@ -52,19 +57,18 @@ const HomePage_Content = () => {
           className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth px-10"
         >
           {images.map((img, index) => (
-            <li
-              key={index}
-              className="min-w-[120px] flex-shrink-0 flex flex-col items-center"
-            >
-              <img
-                src={img}
-                alt={`Trending ${index + 1}`}
-                className="rounded-lg w-[60%] h-auto"
-              />
-              <p className="mt-2 text-center font-extrabold text-gray-800 text-sm">
-                {labels[index]}
-              </p>
-            </li>
+            <Link to="/products" key={index}>
+              <li className="min-w-[120px] flex-shrink-0 flex flex-col items-center cursor-pointer">
+                <img
+                  src={img}
+                  alt={`Trending ${index + 1}`}
+                  className="rounded-lg w-[60%] h-auto"
+                />
+                <p className="mt-2 text-center font-extrabold text-gray-800 text-sm">
+                  {labels[index]}
+                </p>
+              </li>
+            </Link>
           ))}
         </ul>
 
@@ -81,36 +85,42 @@ const HomePage_Content = () => {
         <h1 className="text-2xl font-extrabold text-left mb-6 text-gray-800">
           Featured Brands
         </h1>
-        <ul className="flex justify-center gap-6 flex-wrap  ">
+        <ul className="flex justify-center gap-6 flex-wrap">
           {featuredBrands.map((img, index) => (
-            <li key={index} className="w-[350px]">
-              <img
-                src={img}
-                alt={`Featured Brand ${index + 1}`}
-                className="rounded-lg w-full h-auto shadow-md"
-              />
-              <p className="mt-2 text-left font-extrabold text-gray-800 text-large underline hover:text-red-800">
-                {labels2[index]}
-              </p>
-            </li>
+            <Link to="/products" key={index}>
+              <li className="w-[350px] cursor-pointer">
+                <img
+                  src={img}
+                  alt={`Featured Brand ${index + 1}`}
+                  className="rounded-lg w-full h-auto shadow-md"
+                />
+                <p className="mt-2 text-left font-extrabold text-gray-800 text-large underline hover:text-red-800">
+                  {labels2[index]}
+                </p>
+              </li>
+            </Link>
           ))}
         </ul>
       </div>
 
-      <div>
-        <h1  className="mt-2 text-left font-extrabold text-gray-800 text-large underline hover:text-red-800">Ways to Shop & Save!</h1>
-     <ul className="flex gap-4 justify-center items-center">
-  <li>
-    <img src={tile1} alt="image" className="w-[520px] h-auto rounded" />
-  </li>
-  <li>
-    <img src={tile2} alt="image" className="w-[520px] h-auto rounded" />
-  </li>
-  <li>
-    <img src={tile3} alt="image" className="w-[520px] h-auto rounded" />
-  </li>
-</ul>
-
+      {/* Ways to Shop & Save */}
+      <div className="mt-8">
+        <h1 className="text-left font-extrabold text-gray-800 text-large underline hover:text-red-800 mb-4">
+          Ways to Shop & Save!
+        </h1>
+        <ul className="flex gap-4 justify-center items-center">
+          {[tile1, tile2, tile3].map((tile, idx) => (
+            <Link to="/products" key={idx}>
+              <li className="cursor-pointer">
+                <img
+                  src={tile}
+                  alt={`Tile ${idx + 1}`}
+                  className="w-[520px] h-auto rounded"
+                />
+              </li>
+            </Link>
+          ))}
+        </ul>
       </div>
     </div>
   );
