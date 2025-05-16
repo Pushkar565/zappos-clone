@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import logo from "/src/assets/Homepage/zappos-logo-2025-header.svg";
-import { ShoppingCart, User } from "lucide-react"; 
+import { ShoppingCart, User } from "lucide-react";
+import { useCart } from "../context/CartContext"; // Adjust path as needed
 
 const Global = () => {
+  const { cartItems } = useCart();  // Get cart items from context
+
   return (
     <div className="w-full">
       {/* Promo Banner */}
@@ -39,7 +42,7 @@ const Global = () => {
         </div>
 
         {/* Profile + Cart */}
-        <div className="flex items-center space-x-6 text-sm text-gray-700">
+        <div className="flex items-center space-x-6 text-sm text-gray-700 relative">
           <Link
             to="/profile"
             className="flex flex-col items-center hover:text-blue-600"
@@ -50,11 +53,15 @@ const Global = () => {
 
           <Link
             to="/cart"
-            className="flex flex-col items-center hover:text-blue-600"
+            className="flex flex-col items-center hover:text-blue-600 relative"
           >
             <ShoppingCart className="h-5 w-5" />
+            {cartItems.length > 0 && (
+              <span className="absolute top-0 right-0 -mt-1 -mr-2 bg-red-600 text-white text-xs rounded-full px-1.5">
+                {cartItems.length}
+              </span>
+            )}
             <span>Cart</span>
-            
           </Link>
         </div>
       </div>
