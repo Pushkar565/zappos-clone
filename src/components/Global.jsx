@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "/src/assets/Homepage/zappos-logo-2025-header.svg";
-import { ShoppingCart, User } from "lucide-react"; // Optional if using Lucide
+import { ShoppingCart, User } from "lucide-react"; 
 
 const Global = () => {
   return (
