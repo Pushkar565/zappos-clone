@@ -2,12 +2,18 @@ import Footer from "../components/Footer";
 import Global from "../components/Global";
 import Navbar from "../components/Navbar";
 import { useCart } from "../context/CartContext";
-import { Trash2 } from "lucide-react"; // Lucide icon for delete
+import { Trash2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cartItems, removeFromCart } = useCart();
+  const navigate = useNavigate();
 
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
+
+  const handlePayNow = () => {
+    navigate("/profile");
+  };
 
   return (
     <>
@@ -49,12 +55,21 @@ const Cart = () => {
               ))}
             </div>
 
-            {/* Total */}
-            <div className="mt-8 flex justify-between items-center border-t pt-4">
-              <h2 className="text-xl font-bold">Total</h2>
-              <p className="text-xl font-semibold text-blue-700">
-                ${totalPrice.toFixed(2)}
-              </p>
+            {/* Total + Pay Now */}
+            <div className="mt-8 border-t pt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="text-xl font-bold">
+                Total:{" "}
+                <span className="text-blue-700 font-semibold">
+                  ${totalPrice.toFixed(2)}
+                </span>
+              </div>
+
+              <button
+                onClick={handlePayNow}
+                className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition"
+              >
+                Pay Now
+              </button>
             </div>
           </>
         )}

@@ -54,6 +54,7 @@ const Global = () => {
           >
             <ShoppingCart className="h-5 w-5" />
             <span>Cart</span>
+            
           </Link>
         </div>
       </div>
