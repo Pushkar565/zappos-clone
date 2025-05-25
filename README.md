@@ -38,10 +38,15 @@ This is a fully responsive Zappos-inspired e-commerce frontend application built
 src/
 │
 ├── assets/ # Logos, images
+
 ├── components/ # Navbar, Footer, Global Header
+
 ├── context/ # CartContext
+
 ├── pages/ # Home, Products, Cart, Profile, Payment
+
 ├── App.jsx # Routing
+
 └── main.jsx # App Entry Point
 
 
@@ -112,23 +117,8 @@ Start the app
     On form submission, redirect to /payment.
 
 ✨ Screenshots
-Page	Description
-Home	Banner + Promo
-Products	API fetched grid
-Cart	Add/Remove/Total
-Profile	Sign In / Sign Up
-Payment	Total + Success message
-📌 Future Improvements
-
-    Integrate real Stripe checkout
-
-    Backend (Node.js/Express + MongoDB)
-
-    User authentication with JWT
-
-    Persistent cart with localStorage
-
-    Orders and payment history
+![Homepage](<Screenshot (47)-1.png>)![Homepage](<Screenshot (48)-1.png>)![product page](<Screenshot (50)-1.png>)
+![Cartpage](<Screenshot (51)-1.png>)![paymentpage](<Screenshot (52)-1.png>)
 
 🙌 Credits
 
